@@ -1,0 +1,61 @@
+openapi: "3.0.0"
+info:
+  title: Composers API
+  version: "1.0"
+paths:
+  /composers:
+    description: Composers list
+    get:
+      tags:
+        - composers
+      summary: returns a list of composer documents
+      description: composer list
+      responses:
+        "200":
+          description: Composer documents
+        "500":
+          description: Server exception
+        "501":
+          description: MongoDB exception
+    post:
+      tags:
+        - composers
+      summary: Creates a new composer object
+      requestBody:
+        description: composer object information
+        content:
+          application/json:
+            schema:
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+      responses:
+        "200":
+          description: composers list
+        "500":
+          description: server exception
+        "501":
+          description: MongoDB exception
+  /composers/{id}:
+    description: Composer search
+    get:
+      tags:
+        - composers
+      summary: Returns a composer document
+      description: sends composer information with corresponding id
+      parameters:
+        - name: id
+          in: path
+          description: corresponding id for composer
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: composer information
+        "500":
+          description: server exception
+        "501":
+          description: MongoDB Exception
