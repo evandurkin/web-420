@@ -23,7 +23,7 @@ const Composer = require("../models/durkin-composer.js");
  *         description: Server Exception
  *       501:
  *         description: MongoDB Exception
-**/
+*/
 
 router.get("/composers", async(req, res) => {
     try {
@@ -67,7 +67,7 @@ router.get("/composers", async(req, res) => {
  *         description: Server Exception
  *       501:
  *         description: MongoDB Exception
- **/
+ */
 
 router.get("/composer/:id", async(req, res) => {
     try {
@@ -110,7 +110,7 @@ router.get("/composer/:id", async(req, res) => {
  *         description: Server Exception
  *       501:
  *         description: MongoDB Exception
- **/
+ */
 
 router.post("/composers", (req, res) => {
     try {
