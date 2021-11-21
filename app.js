@@ -15,7 +15,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 // set statements
-app.set("port", process.env.PORT || 8080);
+app.set("port", process.env.PORT || 3000);
 
 // use statements
 app.use(express.json());
@@ -36,4 +36,4 @@ const openapiSpecification = swaggerJsdoc(options);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 http.createServer(app).listen(app.get("port"), function()
-    { console.log("Application started and listening on port 8080")});
+    { console.log("Application started and listening on port 3000")});

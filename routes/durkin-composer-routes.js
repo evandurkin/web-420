@@ -1,5 +1,5 @@
 /*
-=========================
+ ========================
  Title: Assignment 4.2
  Author: Evan Durkin
  Date: November 14, 2021
@@ -7,7 +7,7 @@
  */
 
 // require and router statements
- const express = require("express");
+const express = require("express");
 const router = express.Router();
 const Composer = require("../models/durkin-composer.js");
 
@@ -89,7 +89,7 @@ router.get("/composer/:id", async(req, res) => {
  * @openapi
  * /api/composers:
  *   post:
- *     summary: Creates a new composer object
+ *     summary: creates a new composer object
  *     description: Creates a new composer object,
  *     requestBody:
  *       description:
