@@ -9,6 +9,9 @@ const http = require("http");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
 const mongoose = require("mongoose");
+const composerRoute = require("./routes/durkin-composer-routes");
+const personRoute = require("./routes/durkin-person-routes");
+const sessionRoute = require("./routes/durkin-session-routes");
 
 
 // assigns express to a variable
@@ -34,6 +37,7 @@ const options = {
 
 const openapiSpecification = swaggerJsdoc(options);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+app.use("/api", composerRoute, personRoute, sessionRoute);
 
 http.createServer(app).listen(app.get("port"), function()
     { console.log("Application started and listening on port 3000")});

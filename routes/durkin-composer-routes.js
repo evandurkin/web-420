@@ -130,3 +130,4 @@ router.post("/composers", (req, res) => {
     }
   });
 
+  module.exports = router;

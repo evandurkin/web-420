@@ -35,9 +35,9 @@ const saltRounds = 10;
 *            properties:
 *              userName:
 *                type: string
-*              password:
+*              Password:
 *                type: string
-*              email:
+*              emailAddress:
 *                type: string
 *      responses:
 *        200:
@@ -51,14 +51,14 @@ const saltRounds = 10;
 */
 router.post("/signup", (req, res) => {
     try {
-        let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+        let hashedPassword = bcrypt.hashSync(req.body.Password, saltRounds);
         const newRegisteredUser = {
             userName: req.body.userName,
             Password: hashedPassword,
             emailAddress: req.body.emailAddress
         }
 
-        user.findOne({"userName": req.body.userName}, function(error, user) {
+        User.findOne({"userName": req.body.userName}, function(error, user) {
             if(error) {
                 res.status(501).send({
                     "message": `Mongo DB Exception: ${error}`
@@ -111,9 +111,9 @@ router.post("/signup", (req, res) => {
 *           properties:
 *             userName:
 *               type: string
-*             password:
+*             Password:
 *                type: string
-*             email:
+*             emailAddress:
 *                 type: string
 *     responses:
 *       200:
@@ -135,7 +135,7 @@ router.post("/login", async(req, res) => {
                 })
             } else {
                 if(user) {
-                    let passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
+                    let passwordIsValid = bcrypt.compareSync(req.body.Password, user.Password);
                     if(passwordIsValid) {
                         res.status(200).send({
                             "message": `User logged in`
